@@ -641,7 +641,8 @@ Erlang code.
 -compile([{hipe,[{regalloc,linear_scan}]}]).
 
 -export_type([abstract_expr/0, abstract_node/0,
-              abstract_type/0, form_info/0, error_info/0]).
+              abstract_type/0, abstract_element/0,
+              form_info/0, error_info/0]).
 
 %% Start of Abstract Format
 
@@ -649,6 +650,11 @@ Erlang code.
 
 -type abstract_node() ::
     af_function_decl() | af_attribute() | abstract_expr().
+
+%% Every element that can be handled standalone internally
+-type abstract_element() ::
+        abstract_node()
+      | af_binelement(abstract_expr() | af_guard_test() | af_pattern()).
 
 -type af_attribute() :: {attribute, anno(), af_atom(), [abstract_expr()]}.
 
