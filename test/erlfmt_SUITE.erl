@@ -963,7 +963,7 @@ parse_form(String) ->
                 "Expected successful parse: \n~ts\n for warning: ~ts",
                 [String, erlfmt:format_error_info(Warning)]
             );
-        {error, {_, Mod, Reason}} ->
+        {error, {_File, _Loc, Mod, Reason}} ->
             ct:fail(
                 "Expected successful parse:\n~ts\ngot: ~ts",
                 [String, Mod:format_error(Reason)]
@@ -979,7 +979,7 @@ parse_forms(String) ->
                 "Expected successful parse: \n~ts\n for warning: ~ts",
                 [String, erlfmt:format_error_info(Warning)]
             );
-        {error, {_, Mod, Reason}} ->
+        {error, {_File, _Loc, Mod, Reason}} ->
             ct:fail(
                 "Expected successful parse:\n~ts\ngot: ~ts",
                 [String, Mod:format_error(Reason)]

@@ -47,7 +47,7 @@
 
 -define(INDENT, 4).
 
--spec to_algebra(erlfmt_parse:abstract_form()) -> erlfmt_algebra:doc().
+-spec to_algebra(erlfmt_parse:abstract_node()) -> erlfmt_algebra:doc().
 to_algebra({shebang, Meta, String}) ->
     Doc = string(String),
     combine_comments(Meta, Doc);

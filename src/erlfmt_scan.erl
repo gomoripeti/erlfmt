@@ -39,7 +39,7 @@
     read_rest/1
 ]).
 
--export_type([state/0, anno/0, token/0, comment/0]).
+-export_type([state/0, anno/0, token/0, location/0, comment/0]).
 
 -define(ERL_SCAN_OPTS, [text, return_white_spaces, return_comments]).
 -define(START_LOCATION, {1, 1}).
